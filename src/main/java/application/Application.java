@@ -22,7 +22,7 @@ public class Application {
 		driver.manage().window().maximize();
 		
 		HomePage homePage = new HomePage();
-		LoginPage loginPage = new LoginPage();
+		//LoginPage loginPage = new LoginPage();
 		SearchPage searchPage = new SearchPage();
 		ProductPage product = new ProductPage();
 		ShoppingCartPage cart = new ShoppingCartPage();
@@ -32,7 +32,7 @@ public class Application {
 		String mainPageTitle = driver.getTitle();
 		controller.homePageCheck(mainPageTitle);
 		
-		loginPage.loginToPage();
+		//loginPage.loginToPage();
 		controller.checkLogin();
 		
 		searchPage.performSearch();
@@ -40,12 +40,10 @@ public class Application {
 		controller.checkPage(hrefLink);
 		
 		String pagePrice = product.getProductPrice();
-		String cartPrice = cart.getShoppingCartPrice();
-		controller.checkPrice(pagePrice, cartPrice);
-		
-		String amount = cart.addOneMoreProductAndGetAmount();
-		controller.checkAmount(amount);
-		
+		cart.getShoppingCartPrice();
+
+		cart.addOneMoreProductAndGetAmount();
+
 		cart.deleteCartProduct();
 		
 		

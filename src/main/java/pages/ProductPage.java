@@ -16,12 +16,11 @@ public class ProductPage {
 
 	By productContainer = By.className("products-container");
 	By productIndex = By.xpath("//li[@product-index]");
-	By addToCartButton = By.xpath("//button[@class='control-button gg-ui-button plr10 gg-ui-btn-default']");
-	By price = By.xpath("//*[@id=\'sp-price-highPrice\']");
+	By addToCartButton = By.xpath("//button[@class='add-to-basket']");
+	By price = By.xpath("//*[@class=\'prc-slg\']");
 	
 	public String getProductPrice() {
 		
-		pickProductAndOpenPage();
 		addToCart();
 		return driver.findElement(price).getText();				
 	}

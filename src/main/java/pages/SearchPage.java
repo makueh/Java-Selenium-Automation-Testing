@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import application.Driver;
@@ -9,22 +10,22 @@ public class SearchPage {
 
 	WebDriver driver = Driver.getInstance().getDriver();
 
-	By searchKey = By.name("k");
-	By searchButton = By.xpath("//button[@class='qjixn8-0 sc-1bydi5r-0 hKfdXF']");
-	
+	By searchKey = By.className("search-box");
+	By searchButton = By.xpath("//i[@class='search-icon']");
+	By closeButton = By.xpath("//div[@class='modal-close']");
 	public void performSearch() {
 		searchItem();
 	}
 	
 	private void searchItem() {
-		
-		driver.findElement(searchKey).sendKeys("bilgisayar");
-		driver.findElement(searchButton).click();
+
+		driver.findElement(closeButton).click();
+		driver.findElement(searchKey).sendKeys("masa", Keys.ENTER);
 	}
-	
+
 	public String openSecondPage() {
 		
-		String hrefLink = driver.findElement(By.xpath("//*[@id='best-match-right']/div[5]/ul/li[2]/a")).getAttribute("href");		
+		String hrefLink = driver.findElement(By.xpath("//*[@data-id='34259747']/div[1]/a")).getAttribute("href");
 		driver.get(hrefLink);
 		return hrefLink;
 	}

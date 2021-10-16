@@ -10,12 +10,12 @@ public class ControlUtil {
 	
 	WebDriver driver = Driver.getInstance().getDriver();
 	
-	By userName = By.xpath("//span[.='oglrtest932329']");
+	By userName = By.xpath("//span[.='testtest515887']");
 
 
 	public void homePageCheck(String currentTitle) {
 		
-		if(currentTitle.equals("GittiGidiyor - Türkiye'nin Öncü Alýþveriþ Sitesi")) {
+		if(currentTitle.equals("En Trend Ürünler Türkiye'nin Online Alýþveriþ Sitesi Trendyol'da")) {
 			System.out.println("Main Page Loaded Successfully");
 		}else {
 			System.out.println("Main Page Failed to Load");
@@ -26,7 +26,7 @@ public class ControlUtil {
 		
 		if(driver.getCurrentUrl().equals(IConstant.HOME_PAGE_URL)) {
 			String user = driver.findElement(userName).getText();
-			if (user.equals("oglrtest932329")) {
+			if (user.equals("testtest515887")) {
 				System.out.println("Login SUCCESSFULL");
 			}else {
 				System.out.println("Login FAILED");

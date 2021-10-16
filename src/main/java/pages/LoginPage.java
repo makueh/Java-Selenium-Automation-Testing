@@ -9,9 +9,9 @@ public class LoginPage {
 			
 	WebDriver driver = Driver.getInstance().getDriver();
 	
-	By username = By.id("L-UserNameField");
-	By password = By.id("L-PasswordField");
-	By loginButton = By.id("gg-login-enter");
+	By username = By.id("login-email");
+	By password = By.id("login-password-input");
+	By loginButton = By.className("submit");
 	
 	public void loginToPage() {
 		

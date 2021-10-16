@@ -11,10 +11,10 @@ public class ShoppingCartPage {
 	
 	WebDriver driver = Driver.getInstance().getDriver();
 	
-	By getCartPrice = By.xpath("//*[@id=\"submit-cart\"]/div/div/div[3]/div/div[1]/div/div[5]/div[1]/div/ul/li[1]/div[2]");
-	By plusOne = By.className("gg-icon-plus");
-	By deleteProduct = By.className("btn-delete");
+	By getCartPrice = By.xpath("//*[@class=\"pb-summary-total-price \"]");
+	By plusOne = By.xpath("//*[@class='ty-numeric-counter-button']");
 	By getAmount = By.className("amount");
+	By delete = By.xpath("//*[@class='ty-font-w-semi-bold ty-button ty-bordered ty-transition ty-input-medium ty-primary']");
 	
 	public void openShoppingCartPage() {
 		sleep();
@@ -22,21 +22,21 @@ public class ShoppingCartPage {
 		
 	}
 	
-	public String getShoppingCartPrice() {
+	public void getShoppingCartPrice() {
 		
 		openShoppingCartPage();		
-		return driver.findElement(getCartPrice).getText();		
 	}
 	
-	public String addOneMoreProductAndGetAmount() {
+	public void addOneMoreProductAndGetAmount() {
 		
 		driver.findElement(plusOne).click();
-		return driver.findElement(getAmount).getAttribute("value");
 	}
 	
 	public void deleteCartProduct() {
 		sleep();
-		driver.findElements(By.className("btn-delete")).get(0).click();
+		driver.findElements(By.className("i-trash")).get(0).click();
+	//	driver.findElement(By.xpath("//*[@class='ty-font-w-semi-bold ty-button ty-bordered ty-transition ty-input-medium ty-primary']"));
+		driver.findElement(delete).click();
 	}
 	
 	private void sleep() {
