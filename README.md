@@ -8,4 +8,3 @@ After downloading the chromedriver don't forget to replace it at "drivers/chrome
 Before testing the program please don't forget to change USERNAME and PASSWORD at the IConstant.java.
 
 
-Onur Güları.
